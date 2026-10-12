@@ -21,11 +21,14 @@ Epic no publica su launcher para Linux. **UnLauncher** es uno nativo, escrito en
 
 ## Instalar
 
-Flathub (próximamente):
+Flatpak: necesitas [Flatpak](https://flatpak.org/setup/) y el remoto de Flathub, que aporta el runtime de GNOME:
 
 ```bash
-flatpak install flathub io.github.krl0sconk.UnLauncher
+flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+flatpak install --user https://krl0sconk.github.io/UnLauncher/io.github.krl0sconk.UnLauncher.flatpakref
 ```
+
+Las actualizaciones llegan con `flatpak update` (o desde GNOME Software o Discover). También puedes bajar el `.flatpak` del [último release](https://github.com/krl0sconk/UnLauncher/releases/latest) e instalarlo con `flatpak install --user UnLauncher-0.1.0.flatpak`; así no se actualiza solo.
 
 Desde el código, con [rustup](https://rustup.rs) (la versión de Rust está fijada en `rust-toolchain.toml`) y los archivos de desarrollo de GTK 3 y WebKitGTK 4.1:
 
