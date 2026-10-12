@@ -115,7 +115,7 @@ Issues and pull requests are welcome. Read [`CONTRIBUTING.md`](CONTRIBUTING.md) 
 
 ## AI disclosure
 
-AI assistance was used to help write the code of this project. [Claude](https://claude.com/claude-code), by Anthropic, is credited as a contributor. The code is reviewed and maintained by [@krl0sconk](https://github.com/krl0sconk), who is responsible for it.
+AI assistance was used to help write the code of this project. 
 
 ## Security
 
