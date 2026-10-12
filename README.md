@@ -113,6 +113,10 @@ From a checkout, use `cargo run -p unlauncher-cli -- engines list`. The [user gu
 
 Issues and pull requests are welcome. Read [`CONTRIBUTING.md`](CONTRIBUTING.md) first; [`ARCHITECTURE.md`](ARCHITECTURE.md) explains how the code is organized.
 
+## AI disclosure
+
+AI assistance was used to help write the code of this project. [Claude](https://claude.com/claude-code), by Anthropic, is credited as a contributor. The code is reviewed and maintained by [@krl0sconk](https://github.com/krl0sconk), who is responsible for it.
+
 ## Security
 
 Please report vulnerabilities privately; see [`SECURITY.md`](SECURITY.md).
