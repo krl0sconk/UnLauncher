@@ -15,13 +15,13 @@
   <a href="https://github.com/krl0sconk/UnLauncher/releases"><img alt="Latest release" src="https://img.shields.io/github/v/release/krl0sconk/UnLauncher?include_prereleases&style=flat-square&color=f5a524"></a>
 </p>
 
-Epic doesn't ship its launcher for Linux. **UnLauncher** is a native one, written in Rust, so installing an engine, opening a project and getting your Fab assets doesn't need a terminal.
+Epic doesn't ship its launcher for Linux. **UnLauncher** is a native one, written in Rust.
 
-## ✨ What it does
+## What it does
 
-- **Library** of engines and projects, with thumbnails. It reads the same `Install.ini` as the Unreal Editor, so both always agree.
+- **Library** of engines and projects. It reads the same `Install.ini` as the Unreal Editor, so both always agree.
 - **Prebuilt engines** from Epic: sign in, pick a version, and UnLauncher downloads, extracts and registers it.
-- **Build from source** from the private `EpicGames/UnrealEngine` repository, with a requirements check and no personal access token to create.
+- **Build from source** from the private `EpicGames/UnrealEngine` repository, with a requirements check.
 - **Fab library**: browse the assets you own and add them to a project or an engine.
 - **Tasks**: downloads, imports and builds with progress, pause and cancel.
 - Double-click a `.uproject` to open it with the right engine; add per-engine shortcuts to your application menu.
@@ -74,14 +74,12 @@ cargo build --release
 ./target/release/unlauncher
 ```
 
-The window that signs you in to Epic is a separate program, `unlauncher-web`; the interface looks for it next to its own executable, so keep both files together.
+##  First use
 
-## 🚀 First use
-
-1. Open UnLauncher. It looks for engines in your home folder and `/opt` and offers to register what it finds. Nothing is moved or modified.
+1. Open UnLauncher. It looks for engines in your home folder and `/opt` and offers to register what it finds. 
 2. Open **Library → Install engine**, then choose **Prebuilt** and **List available versions**. Sign in to Epic in the window that opens.
 3. Pick a version and an empty destination folder. Follow the download and extraction in **Tasks**.
-4. Double-click a project card (or a `.uproject` in your file manager) to open it with its engine.
+4. Double-click a project card to open it with its engine.
 
 There is a command-line tool too:
 
@@ -93,51 +91,17 @@ unlauncher-cli --help
 
 From a checkout, use `cargo run -p unlauncher-cli -- engines list`. The [user guide](docs/user-guide.md) covers every screen.
 
-## ❓ FAQ
-
-<details>
-<summary>Do I need an Epic account?</summary>
-
-To manage engines and projects that are already on your disk, no. To download a prebuilt engine, build from source or use your Fab library, yes: Epic's downloads and GitHub access are tied to your account. UnLauncher never reads your password; it keeps a session token in the system keyring.
-
-</details>
-
-<details>
-<summary>Is this official?</summary>
-
-No. UnLauncher is an independent project and has no relationship with Epic Games.
-
-</details>
-
-<details>
-<summary>Why does the Flatpak ask for these permissions?</summary>
-
-Mainly `org.freedesktop.Flatpak` (to launch the Unreal Editor and build the engine on the host, where your GPU drivers and compilers are) and `--filesystem=home` (engines and projects live anywhere in your home). The full justification is in [`docs/permissions.md`](docs/permissions.md).
-
-</details>
-
-<details>
-<summary>Which Fab data does it use?</summary>
-
-It reads your library and downloads assets through the same private API the Epic Games Launcher uses (via the `egs-api` crate). Epic does not support it for third-party apps, so it may stop working at any time; UnLauncher says so in the Fab screen and only downloads assets you already own.
-
-</details>
-
-## 🤝 Contributing
+## Contributing
 
 Issues and pull requests are welcome. Read [`CONTRIBUTING.md`](CONTRIBUTING.md) first; [`ARCHITECTURE.md`](ARCHITECTURE.md) explains how the code is organized.
 
-## 🔒 Security
+## Security
 
 Please report vulnerabilities privately; see [`SECURITY.md`](SECURITY.md).
 
-## 📄 License
+## License
 
 [GPL-3.0-or-later](LICENSE). Fonts, icons and other third-party material are listed in [`THIRD_PARTY.md`](THIRD_PARTY.md).
-
-## 💛 Support
-
-<!-- Donation link: add GitHub Sponsors / Ko-fi here -->
 
 ---
 
