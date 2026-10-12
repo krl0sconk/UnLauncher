@@ -60,6 +60,10 @@ Toda modificación pide confirmación (o `--yes`) y guarda una copia `*.bak` del
 - [Guía de usuario](user-guide.md) (en inglés), [arquitectura](../ARCHITECTURE.md), [permisos del Flatpak](permissions.md).
 - [Contribuir](../CONTRIBUTING.md), [seguridad](../SECURITY.md).
 
+## Uso de IA
+
+Se usó IA para ayudar a escribir el código de este proyecto. [Claude](https://claude.com/claude-code), de Anthropic, figura como contribuidor. El código lo revisa y mantiene [@krl0sconk](https://github.com/krl0sconk), quien responde por él.
+
 ## Licencia
 
 [GPL-3.0-or-later](../LICENSE). Las fuentes, iconos y demás material de terceros están en [`THIRD_PARTY.md`](../THIRD_PARTY.md).
