@@ -1,0 +1,77 @@
+# Known Unreal Engine build failures on Linux.
+#
+# Each [[error]] has:
+#   id       unique, stable identifier (kebab-case); the interface may key translations on it
+#   pattern  Rust `regex` syntax, matched against single output lines (Setup.sh,
+#            GenerateProjectFiles.sh and Build.sh). Prefer generic, robust patterns.
+#   cause    probable cause, shown to the user (English)
+#   solution next step, shown to the user (English)
+#
+# Order matters: when several entries match, they are reported in this order,
+# so put the most specific / most likely root causes first.
+#
+# The patterns below are based on well-known messages from the Linux kernel,
+# clang/gcc, glibc, bash and .NET. None has been checked against a recorded
+# UnLauncher build log yet. Bump `version` whenever an entry changes.
+
+version = 1
+
+[[error]]
+id = "out-of-memory"
+pattern = '(?i)(killed signal terminated program|unable to execute command: killed|frontend command failed due to signal|out of memory|std::bad_alloc|cannot allocate memory)'
+cause = "The system ran out of memory and the kernel killed a compiler or linker process."
+solution = "Lower the number of parallel jobs in the build options (each job needs about 8 GB of RAM), close other programs, or add swap, then build again."
+
+[[error]]
+id = "disk-full"
+pattern = '(?i)no space left on device'
+cause = "The disk holding the engine source is full."
+solution = "Free up space (a full editor build needs well over 150 GB) or move the engine to a larger disk, then build again."
+
+[[error]]
+id = "too-many-open-files"
+pattern = '(?i)too many open files'
+cause = "The build hit the per-process limit of open files."
+solution = "Raise the open files limit (for example DefaultLimitNOFILE in /etc/systemd/user.conf or `ulimit -n 16384`), log out and in again, then build again."
+
+[[error]]
+id = "script-permission-denied"
+pattern = '(?i)\.sh:( line \d+:)? .*permission denied'
+cause = "A build script is not executable, usually because the source was copied or extracted without keeping file permissions."
+solution = "Download the source again with git (UnLauncher does this), or make the scripts executable with `chmod +x` on Setup.sh, GenerateProjectFiles.sh and Engine/Build/BatchFiles/Linux/*.sh."
+
+[[error]]
+id = "missing-icu"
+pattern = "(?i)couldn't find a valid ICU package"
+cause = "The .NET runtime bundled with Unreal needs the ICU library, which is not installed."
+solution = "Install your distribution's ICU package (libicu on Debian/Ubuntu, icu on Arch and Fedora), then build again."
+
+[[error]]
+id = "dotnet-runtime"
+pattern = '(?i)(libhostfxr\.so could not be found|you must install or update \.net|a fatal error occurred.*\.net|dotnet: (command )?not found|dotnet: no such file)'
+cause = "The .NET runtime that runs UnrealBuildTool could not start. It is downloaded by Setup.sh, so Setup.sh probably did not finish."
+solution = "Run the build again so Setup.sh can complete. If it keeps failing, delete Engine/Binaries/ThirdParty/DotNet and build again."
+
+[[error]]
+id = "dependency-download"
+pattern = '(?i)(failed to download|unable to download|could not resolve host|name or service not known|temporary failure in name resolution|the ssl connection could not be established|connection timed out|connection reset by peer)'
+cause = "Setup.sh could not download the engine's binary dependencies (a network problem or an unreachable Epic CDN)."
+solution = "Check your internet connection, proxy and firewall, then build again; Setup.sh resumes where it stopped."
+
+[[error]]
+id = "gitdependencies-failed"
+pattern = '(?i)gitdependencies.*(error|exception|failed|not found|no such file|cannot execute)'
+cause = "GitDependencies, the tool Setup.sh uses to download binary dependencies, failed."
+solution = "Build again. If it keeps failing, check the log above this line and the free disk space."
+
+[[error]]
+id = "setup-not-run"
+pattern = '(?i)(missing some files that are required|(unable to|could not|cannot) (find|locate)[^.]{0,60}(toolchain|clang|linux sdk))'
+cause = "Files that Setup.sh downloads (such as the clang toolchain) are missing."
+solution = "Build again so Setup.sh runs first. If you build by hand, run Setup.sh before GenerateProjectFiles.sh."
+
+[[error]]
+id = "compile-error"
+pattern = '^\S+:\d+:\d+: (fatal )?error: '
+cause = "The C++ compiler reported an error in the engine source, usually from local changes or a source tree that does not match its dependencies."
+solution = "If you changed engine files, check them. Otherwise update the engine (which runs Setup.sh again) or download the source again."

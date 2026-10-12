@@ -1,0 +1,4 @@
+SYNTHETIC: shaped like Unreal's out-of-memory report, not recorded from a real crash.
+[2026.10.11-03.10.00:000][  5]LogMemory: Warning: Freeing 0 bytes from backup pool to handle out of memory.
+[2026.10.11-03.10.00:000][  5]LogMemory: Error: Ran out of memory allocating 1073741824 bytes with alignment 16
+[2026.10.11-03.10.00:001][  5]LogCore: Fatal error!

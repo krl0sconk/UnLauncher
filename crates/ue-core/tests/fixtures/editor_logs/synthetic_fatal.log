@@ -1,0 +1,7 @@
+SYNTHETIC: shaped like Unreal's crash output, not recorded from a real crash.
+Log file open, 10/10/26 22:00:00
+[2026.10.11-03.00.01:000][100]LogTemp: Display: Loading map /Game/Maps/Main
+[2026.10.11-03.00.02:000][101]LogCore: === Critical error: ===
+Unhandled Exception: SIGSEGV: invalid attempt to read memory at address 0x0000000000000000
+[2026.10.11-03.00.02:000][101]LogCore: Fatal error!
+[2026.10.11-03.00.02:001][101]LogExit: Executing StaticShutdownAfterError

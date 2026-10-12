@@ -1,0 +1,24 @@
+[package]
+name = "epic-auth"
+description = "Epic Games login, token exchange and refresh; shared HTTP client and credential storage."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+common = { workspace = true }
+egs-api = { workspace = true }
+keyring = { workspace = true }
+reqwest = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+tokio = { workspace = true }
+tracing = { workspace = true }
+
+[dev-dependencies]
+wiremock = { workspace = true }
+
+[lints]
+workspace = true

@@ -1,0 +1,2 @@
+# Product and platform names, not code identifiers.
+doc-valid-idents = ["UnLauncher", "WebKit", "WebKitGTK", "PlayStation", "EpicGames", "GitHub", "JetBrains", ".."]

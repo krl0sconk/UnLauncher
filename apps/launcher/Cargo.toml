@@ -1,0 +1,46 @@
+[package]
+name = "unlauncher"
+description = "UnLauncher graphical interface."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+
+[[bin]]
+name = "unlauncher"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = { workspace = true }
+clap = { workspace = true }
+common = { workspace = true }
+eframe = { workspace = true }
+egui = { workspace = true }
+egui_extras = { workspace = true }
+egui-winit = { workspace = true }
+epic-auth = { workspace = true }
+fab = { workspace = true }
+github-auth = { workspace = true }
+image = { workspace = true }
+jobs = { workspace = true }
+reqwest = { workspace = true }
+rfd = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+system = { workspace = true }
+toml = { workspace = true }
+tokio = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+ue-build = { workspace = true }
+ue-core = { workspace = true }
+ue-prebuilt = { workspace = true }
+url = { workspace = true }
+web-bridge = { workspace = true }
+
+[dev-dependencies]
+tempfile = { workspace = true }
+
+[lints]
+workspace = true

@@ -1,0 +1,17 @@
+# SYNTHETIC LOG - hand-written, not recorded from a real build (see README.md)
+==> /engine/Setup.sh
+Checking dependencies...
+Updating dependencies:   0% (0/96000), 0.0/27000.0 MiB | 0.00 MiB/s
+Updating dependencies:  50% (48000/96000), 13500.0/27000.0 MiB | 40.00 MiB/s
+Updating dependencies: 100% (96000/96000), 27000.0/27000.0 MiB | 40.00 MiB/s, done.
+Registering git hooks...
+==> /engine/GenerateProjectFiles.sh
+Setting up Unreal Engine project files...
+==> /engine/Engine/Build/BatchFiles/Linux/Build.sh UnrealEditor Linux Development -MaxParallelActions=4
+Building UnrealEditor...
+[1/4000] Compile [x64] Module.Core.1.cpp
+[2/4000] Compile [x64] Module.Core.2.cpp
+[3/4000] Compile [x64] Module.CoreUObject.1.cpp
+clang++: error: unable to execute command: Killed
+clang++: error: clang frontend command failed due to signal (use -v to see invocation)
+[4/4000] Compile [x64] Module.Engine.1.cpp

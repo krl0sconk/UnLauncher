@@ -1,0 +1,70 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+# A new push to the same PR cancels its older runs; runs on main are kept.
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+env:
+  CARGO_TERM_COLOR: always
+  RUSTFLAGS: -D warnings
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # unlauncher-web (wry + tao) links GTK 3 and WebKitGTK 4.1.
+      - name: System libraries
+        run: sudo apt-get update && sudo apt-get install -y libgtk-3-dev libwebkit2gtk-4.1-dev
+      # Installs the toolchain pinned in rust-toolchain.toml.
+      - run: rustup toolchain install
+      - uses: Swatinem/rust-cache@v2
+      - name: Format
+        run: cargo fmt --all --check
+      - name: Clippy
+        run: cargo clippy --workspace --all-targets -- -D warnings
+      - name: Test
+        run: cargo test --workspace
+
+  cargo-deny:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: EmbarkStudios/cargo-deny-action@v2
+        with:
+          command: check advisories licenses bans sources
+
+  flatpak-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Desktop file and AppStream
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y desktop-file-utils appstream
+          desktop-file-validate packaging/linux/io.github.krl0sconk.UnLauncher.desktop
+          # --no-net: the repository URLs and the v0.1.0 screenshots only exist
+          # once the repository is public and the tag is created.
+          appstreamcli validate --no-net --explain packaging/linux/io.github.krl0sconk.UnLauncher.metainfo.xml
+      # The Flathub linter is advisory (continue-on-error): two of its findings
+      # are exceptions the Flathub reviewers grant, not errors to fix
+      # (finish-args-flatpak-spawn-access and finish-args-home-filesystem-access,
+      # justified in docs/permissions.md), and it reaches out to the
+      # network (repository URL, screenshots), so it can fail when GitHub is
+      # unreachable or while the repository is still private.
+      - name: Flathub linter
+        continue-on-error: true
+        run: |
+          docker run --rm -v "$PWD:/src:ro" -w /src ghcr.io/flathub/flatpak-builder-lint:latest \
+            manifest packaging/flathub/io.github.krl0sconk.UnLauncher.yml
+          docker run --rm -v "$PWD:/src:ro" -w /src ghcr.io/flathub/flatpak-builder-lint:latest \
+            appstream packaging/linux/io.github.krl0sconk.UnLauncher.metainfo.xml

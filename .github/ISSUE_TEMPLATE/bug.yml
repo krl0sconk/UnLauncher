@@ -1,0 +1,49 @@
+name: Bug report
+description: Something does not work as expected
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## ⚠️ Never paste tokens or cookies
+        Not in the description, not in the log. Remove tokens, cookies, signed download URLs and account ids before sending anything. For a security problem, do not use this form: see `SECURITY.md`.
+  - type: input
+    id: distro
+    attributes:
+      label: Distribution and desktop
+      placeholder: "Fedora 44, KDE Plasma, Wayland"
+    validations:
+      required: true
+  - type: dropdown
+    id: install
+    attributes:
+      label: How did you install UnLauncher?
+      options:
+        - Flatpak
+        - Built from source (native)
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: "`unlauncher --version`, or the version in Settings → About"
+      placeholder: "0.1.0"
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what did you expect?
+      description: Steps to reproduce help a lot.
+    validations:
+      required: true
+  - type: textarea
+    id: log
+    attributes:
+      label: Log
+      description: |
+        Run it from a terminal with logging on and paste the relevant lines.
+        Native: `RUST_LOG=info unlauncher`. Flatpak: `flatpak run --env=RUST_LOG=info io.github.krl0sconk.UnLauncher`.
+        For an engine build, also the build log file if there is one. **Remove anything that looks like a token or cookie first.**
+      render: text

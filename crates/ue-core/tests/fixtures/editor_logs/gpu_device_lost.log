@@ -1,0 +1,75 @@
+﻿Log file open, 10/10/26 21:13:02
+LogInit: Running DelayedAutoRegister Phase StartOfEnginePreInit
+LogInit: Display: Running engine for game: Test
+[2026.10.11-02.13.05:541][  0]LogVulkanRHI: Creating Vulkan Device using VkPhysicalDevice 0x0x289d7600.
+[2026.10.11-02.13.05:541][  0]LogVulkanRHI: Display: - DeviceName: AMD Radeon RX 6600 (RADV NAVI23)
+[2026.10.11-02.13.05:541][  0]LogVulkanRHI: Display: - API=1.4.354 (0x404162) Driver=0x6802004 VendorId=0x1002
+[2026.10.11-02.32.59:636][741]LogSynthBenchmark: Display:   CPU Perf Index 0: 204.5 (weight 1.00)
+[2026.10.11-02.32.59:636][741]LogSynthBenchmark: Display:   CPU Perf Index 1: 240.0 (weight 1.50)
+[2026.10.11-02.32.59:636][741]LogSynthBenchmark: Display:  
+[2026.10.11-02.32.59:636][741]LogSynthBenchmark: Display: Graphics:
+[2026.10.11-02.32.59:636][741]LogSynthBenchmark: Display:   Adapter Name: 'AMD Radeon RX 6600 (RADV NAVI23)'
+[2026.10.11-02.33.05:976][741]LogVulkanRHI: Error: VulkanRHI::vkQueueSubmit(Queue, InSubmitInfos.Num(), InSubmitInfos.GetData(), FenceHandle) failed, VkResult=-4
+ at ./Runtime/VulkanRHI/Private/VulkanQueue.cpp:491 
+ with error VK_ERROR_DEVICE_LOST
+[2026.10.11-02.33.05:977][741]LogVulkanRHI: Error: Shader diagnostic messages and asserts:
+
+	Device: 0, Queue Graphics:
+		No shader diagnostics found for this queue.
+
+	Device: 0, Queue AsyncCompute:
+		No shader diagnostics found for this queue.
+
+[2026.10.11-02.33.05:977][741]LogVulkanRHI: Error: 
+DEVICE FAULT REPORT:
+* Description: 
+* Address Info: 
+* Vendor Info: 
+* Vendor Binary Size: 0
+
+[2026.10.11-02.33.05:978][741]LogRHI: Error: Active GPU breadcrumbs:
+
+	Device 0, Pipeline Graphics: (In: 0x801fb1c7, Out: 0x801fabc3)
+		(ID: 0x801fabc2) [     Active]	Frame 13741
+		(ID: 0x801fabc3) [     Active]		Scale:0.150000
+		(ID: 0x801fb1b2) [     Active]			Iteration:69
+		(ID: 0x801fb1c7) [     Active]				Benchmark Method:6
+		(ID: 0x801fb1c8) [Not Started]		Scale:0.150000
+		(ID: 0x801fb1c9) [Not Started]			Iteration:0
+		(ID: 0x801fb1ca) [Not Started]				RenderGraphExecute - 
+		(ID: 0x801fb1cb) [Not Started]					FRDGBuilder::SubmitBufferUploads
+		(ID: 0x801fb1cc) [Not Started]				Benchmark Method:0
+		(ID: 0x801fb1cd) [Not Started]				RenderGraphExecute - 
+		(ID: 0x801fb1ce) [Not Started]					FRDGBuilder::SubmitBufferUploads
+		(ID: 0x801fb1cf) [Not Started]				Benchmark Method:1
+		(ID: 0x801fb1d0) [Not Started]				RenderGraphExecute - 
+		(ID: 0x801fb1d1) [Not Started]					FRDGBuilder::SubmitBufferUploads
+		(ID: 0x801fb1d2) [Not Started]				Benchmark Method:2
+		(ID: 0x801fb1d3) [Not Started]				RenderGraphExecute - 
+		(ID: 0x801fb1d4) [Not Started]					FRDGBuilder::SubmitBufferUploads
+		(ID: 0x801fb1d5) [Not Started]				Benchmark Method:3
+		(ID: 0x801fb1d6) [Not Started]				RenderGraphExecute - 
+		(ID: 0x801fb1d7) [Not Started]					FRDGBuilder::SubmitBufferUploads
+		(ID: 0x801fb1d8) [Not Started]				Benchmark Method:4
+		(ID: 0x801fb1d9) [Not Started]				RenderGraphExecute - 
+		(ID: 0x801fb1da) [Not Started]					FRDGBuilder::SubmitBufferUploads
+		(ID: 0x801fb1db) [Not Started]				Benchmark Method:5
+		(ID: 0x801fb1dc) [Not Started]				RenderGraphExecute - 
+		(ID: 0x801fb1dd) [Not Started]					FRDGBuilder::SubmitBufferUploads
+		(ID: 0x801fb1de) [Not Started]				Benchmark Method:6
+		(ID: 0x801fb1df) [Not Started]			Iteration:1
+		(ID: 0x801fb1e0) [Not Started]				RenderGraphExecute - 
+		(ID: 0x801fb1e1) [Not Started]					FRDGBuilder::SubmitBufferUploads
+		(ID: 0x801fb1e2) [Not Started]				Benchmark Method:0
+		(ID: 0x801fb1e3) [Not Started]				RenderGraphExecute - 
+		(ID: 0x801fb1e4) [Not Started]					FRDGBuilder::SubmitBufferUploads
+		(ID: 0x801fb1e5) [Not Started]				Benchmark Method:1
+		(ID: 0x801fb1e6) [Not Started]				RenderGraphExecute - 
+		(ID: 0x801fb1e7) [Not Started]					FRDGBuilder::SubmitBufferUploads
+		(ID: 0x801fb1e8) [Not Started]				Benchmark Method:2
+		(ID: 0x801fb1e9) [Not Started]				RenderGraphExecute - 
+[... trimmed ...]
+[2026.10.11-02.33.05:978][741]LogCore: FUnixPlatformMisc::RequestExit(1, FVulkanDynamicRHI.TerminateOnGPUCrash)
+		No breadcrumb nodes found for this queue.
+
+[2026.10.11-02.33.05:978][741]LogCore: FUnixPlatformMisc::RequestExit(1, FVulkanDynamicRHI.TerminateOnGPUCrash)

@@ -1,0 +1,32 @@
+[package]
+name = "unlauncher-cli"
+description = "UnLauncher command-line interface."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+
+[[bin]]
+name = "unlauncher-cli"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = { workspace = true }
+clap = { workspace = true }
+common = { workspace = true }
+epic-auth = { workspace = true }
+fab = { workspace = true }
+github-auth = { workspace = true }
+jobs = { workspace = true }
+reqwest = { workspace = true }
+system = { workspace = true }
+tokio = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+ue-build = { workspace = true }
+ue-core = { workspace = true }
+ue-prebuilt = { workspace = true }
+
+[lints]
+workspace = true

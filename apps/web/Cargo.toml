@@ -1,0 +1,26 @@
+[package]
+name = "unlauncher-web"
+description = "UnLauncher's embedded Epic web window (wry + tao), driven by web-bridge."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+
+[[bin]]
+name = "unlauncher-web"
+path = "src/main.rs"
+
+[dependencies]
+common = { workspace = true }
+serde_json = { workspace = true }
+tao = { workspace = true }
+url = { workspace = true }
+web-bridge = { workspace = true }
+wry = { workspace = true }
+
+[dev-dependencies]
+tempfile = { workspace = true }
+
+[lints]
+workspace = true

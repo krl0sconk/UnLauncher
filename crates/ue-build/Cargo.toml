@@ -1,0 +1,32 @@
+[package]
+name = "ue-build"
+description = "Pre-flight checks and building Unreal Engine from source."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+common = { workspace = true }
+git2 = { workspace = true }
+github-auth = { workspace = true }
+jobs = { workspace = true }
+regex = { workspace = true }
+reqwest = { workspace = true }
+# `process` (on top of the workspace's `fs`) to signal the build's process group on cancel.
+rustix = { workspace = true, features = ["process"] }
+serde = { workspace = true }
+system = { workspace = true }
+thiserror = { workspace = true }
+tokio = { workspace = true }
+toml = { workspace = true }
+tracing = { workspace = true }
+ue-core = { workspace = true }
+
+[dev-dependencies]
+tempfile = { workspace = true }
+wiremock = { workspace = true }
+
+[lints]
+workspace = true

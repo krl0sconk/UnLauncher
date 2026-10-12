@@ -1,0 +1,85 @@
+[workspace]
+resolver = "3"
+members = [
+    "crates/common",
+    "crates/ue-core",
+    "crates/ue-build",
+    "crates/ue-prebuilt",
+    "crates/epic-auth",
+    "crates/fab",
+    "crates/jobs",
+    "crates/system",
+    "crates/web-bridge",
+    "crates/github-auth",
+    "apps/launcher",
+    "apps/cli",
+    "apps/web",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+license = "GPL-3.0-or-later"
+repository = "https://github.com/krl0sconk/UnLauncher"
+rust-version = "1.98"
+
+[workspace.dependencies]
+# Internal crates
+common = { path = "crates/common" }
+ue-core = { path = "crates/ue-core" }
+system = { path = "crates/system" }
+jobs = { path = "crates/jobs" }
+epic-auth = { path = "crates/epic-auth" }
+ue-build = { path = "crates/ue-build" }
+ue-prebuilt = { path = "crates/ue-prebuilt" }
+fab = { path = "crates/fab" }
+web-bridge = { path = "crates/web-bridge" }
+github-auth = { path = "crates/github-auth" }
+
+# External crates
+anyhow = "1"
+ashpd = { version = "0.13", default-features = false, features = ["tokio", "dynamic_launcher", "notification"] }
+eframe = { version = "0.36", default-features = false, features = ["glow", "wayland", "x11", "default_fonts", "accesskit"] }
+egs-api = "0.14"
+egui = "0.36"
+# Only the SVG loader (Lucide icons); same version as egui.
+egui_extras = { version = "0.36", default-features = false, features = ["svg"] }
+# Same version eframe uses; only for reading the clipboard.
+egui-winit = { version = "0.36", default-features = false, features = ["clipboard"] }
+git2 = { version = "0.21", features = ["https"] }
+# Thumbnails: decoding only, no encoders.
+image = { version = "0.25", default-features = false, features = ["png", "jpeg", "webp"] }
+keyring = "4"
+notify-rust = "4"
+regex = "1"
+reqwest = { version = "0.13", default-features = false, features = ["rustls", "http2", "json", "stream", "gzip"] }
+rfd = "0.17"
+rustix = { version = "1", features = ["fs"] }
+clap = { version = "4", features = ["derive"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["preserve_order"] }
+tao = "0.37"
+tempfile = "3"
+tokio = { version = "1", features = ["rt", "rt-multi-thread", "macros", "sync", "fs", "process", "io-util", "time", "signal"] }
+toml = "1"
+thiserror = "2"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+url = "2"
+wiremock = "0.6"
+wry = "0.57"
+zip = { version = "9", default-features = false, features = ["deflate", "deflate64"] }
+
+[workspace.lints.rust]
+unsafe_code = "forbid"
+missing_docs = "warn"
+
+[workspace.lints.clippy]
+all = { level = "warn", priority = -1 }
+pedantic = { level = "warn", priority = -1 }
+unwrap_used = "warn"
+expect_used = "warn"
+panic = "warn"
+dbg_macro = "warn"
+print_stdout = "warn"
+module_name_repetitions = "allow"

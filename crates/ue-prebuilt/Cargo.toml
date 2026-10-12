@@ -1,0 +1,29 @@
+[package]
+name = "ue-prebuilt"
+description = "Importing and downloading prebuilt Unreal Engine releases."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+common = { workspace = true }
+egs-api = { workspace = true }
+jobs = { workspace = true }
+reqwest = { workspace = true }
+rustix = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+tokio = { workspace = true }
+tracing = { workspace = true }
+ue-core = { workspace = true }
+zip = { workspace = true }
+
+[dev-dependencies]
+tempfile = { workspace = true }
+wiremock = { workspace = true }
+
+[lints]
+workspace = true

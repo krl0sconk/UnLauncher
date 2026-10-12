@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2026 krl0sconk -->
+<component type="desktop-application">
+  <id>io.github.krl0sconk.UnLauncher</id>
+
+  <name>UnLauncher</name>
+  <summary>Install, update and open Unreal Engine on Linux</summary>
+
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+
+  <developer id="io.github.krl0sconk">
+    <name>krl0sconk</name>
+  </developer>
+
+  <description>
+    <p>
+      UnLauncher is a native launcher for Unreal Engine on Linux. It keeps your
+      engines, projects and Fab assets in one place, and it shares the engine
+      list with the Unreal Editor.
+    </p>
+    <ul>
+      <li>A library of your engines and projects, with thumbnails</li>
+      <li>Installs prebuilt engines from Epic: sign in, pick a version and UnLauncher downloads, extracts and registers it</li>
+      <li>Builds Unreal Engine from its GitHub source, with a requirements check</li>
+      <li>Browses your Fab library and adds assets to a project or an engine</li>
+      <li>Tracks downloads, imports and builds as tasks you can pause or cancel</li>
+      <li>Opens .uproject files with a double click and adds per-engine shortcuts to your application menu</li>
+    </ul>
+    <p>
+      The Unreal Editor and engine builds run on your system, outside the sandbox.
+    </p>
+    <p>
+      UnLauncher is not affiliated with or endorsed by Epic Games. Unreal Engine,
+      Fab and Epic Games are trademarks of Epic Games, Inc.
+    </p>
+  </description>
+
+  <screenshots>
+    <screenshot type="default">
+      <caption>Library: your engines and projects</caption>
+      <image>https://raw.githubusercontent.com/krl0sconk/UnLauncher/v0.1.0/packaging/screenshots/library.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>Fab: the assets you own, ready to add to a project</caption>
+      <image>https://raw.githubusercontent.com/krl0sconk/UnLauncher/v0.1.0/packaging/screenshots/fab.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>Tasks: downloads, imports and builds</caption>
+      <image>https://raw.githubusercontent.com/krl0sconk/UnLauncher/v0.1.0/packaging/screenshots/tasks.png</image>
+    </screenshot>
+  </screenshots>
+  <launchable type="desktop-id">io.github.krl0sconk.UnLauncher.desktop</launchable>
+
+  <url type="homepage">https://github.com/krl0sconk/UnLauncher</url>
+  <url type="bugtracker">https://github.com/krl0sconk/UnLauncher/issues</url>
+  <url type="vcs-browser">https://github.com/krl0sconk/UnLauncher</url>
+
+  <categories>
+    <category>Development</category>
+  </categories>
+
+  <provides>
+    <binary>unlauncher</binary>
+    <mediatype>application/x-uproject</mediatype>
+  </provides>
+
+  <branding>
+    <color type="primary" scheme_preference="light">#f5a524</color>
+    <color type="primary" scheme_preference="dark">#9a5a00</color>
+  </branding>
+
+  <requires>
+    <display_length compare="ge">768</display_length>
+  </requires>
+  <supports>
+    <control>keyboard</control>
+    <control>pointing</control>
+  </supports>
+
+  <!-- The built-in web window lets users buy assets on Fab. -->
+  <content_rating type="oars-1.1">
+    <content_attribute id="money-purchasing">mild</content_attribute>
+  </content_rating>
+
+  <releases>
+    <release version="0.1.0" date="2026-10-11">
+      <description>
+        <p>First release: engine and project library, prebuilt and from-source engine installs, Fab library and tasks.</p>
+      </description>
+    </release>
+  </releases>
+</component>

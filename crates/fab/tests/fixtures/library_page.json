@@ -1,0 +1,77 @@
+{
+  "cursors": { "next": null },
+  "results": [
+    {
+      "assetId": "a1b2c3d4e5f60718293a4b5c6d7e8f90",
+      "assetNamespace": "ue",
+      "categories": [{ "id": "plugins", "name": "Code Plugins" }],
+      "customAttributes": [],
+      "description": "Hand-made fixture: a plugin with two builds.",
+      "distributionMethod": "CODE_PLUGIN",
+      "images": [
+        { "height": "1080", "md5": null, "type": "Screenshot", "uploadedDate": "2025-01-01T00:00:00Z", "url": "https://media.example.invalid/handy-shot.png", "width": "1920" },
+        { "height": "284", "md5": null, "type": "Thumbnail", "uploadedDate": "2025-01-01T00:00:00Z", "url": "https://media.example.invalid/handy-thumb.png", "width": "284" }
+      ],
+      "legacyItemId": null,
+      "projectVersions": [
+        {
+          "artifactId": "HandyPlugin53",
+          "buildVersions": [{ "buildVersion": "5.3.0-1+++UE5+Release-5.3-Windows", "platform": "Windows" }],
+          "engineVersions": ["UE_5.3", "UE_5.2", "UE_5.3"],
+          "targetPlatforms": ["Windows", "Linux"]
+        },
+        {
+          "artifactId": "HandyPlugin55",
+          "buildVersions": null,
+          "engineVersions": ["UE_5.4", "UE_5.5"],
+          "targetPlatforms": null
+        }
+      ],
+      "source": "fab",
+      "title": "Handy Plugin",
+      "url": "https://www.fab.com/listings/00000000-0000-0000-0000-000000000001"
+    },
+    {
+      "assetId": "0f0e0d0c0b0a09080706050403020100",
+      "assetNamespace": "ue",
+      "categories": null,
+      "customAttributes": null,
+      "description": "Hand-made fixture: a content pack with null lists.",
+      "distributionMethod": "ASSET_PACK",
+      "images": null,
+      "legacyItemId": "legacy-1",
+      "projectVersions": null,
+      "source": "fab",
+      "title": "Rocks Pack",
+      "url": "https://www.fab.com/listings/00000000-0000-0000-0000-000000000002"
+    },
+    {
+      "assetId": "11112222333344445555666677778888",
+      "assetNamespace": "ue",
+      "categories": [],
+      "customAttributes": [],
+      "description": "Hand-made fixture: a complete project.",
+      "distributionMethod": "COMPLETE_PROJECT",
+      "images": [],
+      "legacyItemId": null,
+      "projectVersions": [],
+      "source": "fab",
+      "title": "Sample Game",
+      "url": "https://www.fab.com/listings/00000000-0000-0000-0000-000000000003"
+    },
+    {
+      "assetId": "99998888777766665555444433332222",
+      "assetNamespace": "ue",
+      "categories": [],
+      "customAttributes": [],
+      "description": "Hand-made fixture: an unknown distribution method.",
+      "distributionMethod": "SOMETHING_NEW",
+      "images": [],
+      "legacyItemId": null,
+      "projectVersions": [],
+      "source": "fab",
+      "title": "Mystery",
+      "url": "https://www.fab.com/listings/00000000-0000-0000-0000-000000000004"
+    }
+  ]
+}

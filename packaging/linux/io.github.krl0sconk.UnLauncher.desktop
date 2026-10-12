@@ -1,0 +1,14 @@
+[Desktop Entry]
+Type=Application
+Version=1.5
+Name=UnLauncher
+GenericName=Unreal Engine Launcher
+Comment=Install, update and open Unreal Engine and its projects
+Exec=unlauncher %f
+Icon=io.github.krl0sconk.UnLauncher
+Terminal=false
+Categories=Development;
+MimeType=application/x-uproject;
+Keywords=Unreal;Engine;UE5;Game;Editor;
+StartupNotify=true
+StartupWMClass=io.github.krl0sconk.UnLauncher

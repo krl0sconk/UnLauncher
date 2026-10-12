@@ -1,0 +1,7 @@
+Log file open, 10/10/26 21:12:15
+[2026.10.11-02.12.16:090][  0]LogDerivedDataCache: Display: Performance: Latency=0.03ms. Assigned SpeedClass 'Local'
+[2026.10.11-02.13.03:300][287]LogChaosDD: Chaos Debug Draw Shutdown
+[2026.10.11-02.13.03:358][287]LogPakFile: Destroying PakPlatformFile
+[2026.10.11-02.13.03:408][287]LogExit: Exiting.
+[2026.10.11-02.13.03:408][287]LogInit: Tearing down SDL.
+[2026.10.11-02.13.03:421][287]Log file closed, 10/10/26 21:13:03

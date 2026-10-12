@@ -1,0 +1,10 @@
+[
+  "https://dev.epicgames.com/documentation/en-us/unreal-engine/linux-development-requirements-for-unreal-engine",
+  "https://ucs-blob-store.s3-accelerate.amazonaws.com/blobs/a1/b2/a1b2c3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=FAKE&X-Amz-Date=20261010T000000Z&X-Amz-Expires=3600&X-Amz-Signature=fakesiga1b2c3&X-Amz-SignedHeaders=host&response-content-disposition=inline%3Bfilename%3D%22file.zip%22%3Bfilename%2A%3DUTF-8%27%27Linux_Unreal_Engine_5.8.3.zip&x-id=GetObject",
+  "https://ucs-blob-store.s3-accelerate.amazonaws.com/blobs/d4/e5/d4e5f6?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=FAKE&X-Amz-Date=20261010T000000Z&X-Amz-Expires=3600&X-Amz-Signature=fakesigd4e5f6&X-Amz-SignedHeaders=host&response-content-disposition=inline%3Bfilename%3D%22file.zip%22%3Bfilename%2A%3DUTF-8%27%27Linux_Unreal_Engine_5.7.4.zip&x-id=GetObject",
+  "https://ucs-blob-store.s3-accelerate.amazonaws.com/blobs/0a/0b/0a0b0c?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=FAKE&X-Amz-Date=20261010T000000Z&X-Amz-Expires=3600&X-Amz-Signature=fakesig0a0b0c&X-Amz-SignedHeaders=host&response-content-disposition=inline%3Bfilename%3D%22file.zip%22%3Bfilename%2A%3DUTF-8%27%27Linux_Fab_5.8.zip&x-id=GetObject",
+  "https://ucs-blob-store.s3-accelerate.amazonaws.com/blobs/77/88/778899?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=FAKE&X-Amz-Date=20261010T000000Z&X-Amz-Expires=3600&X-Amz-Signature=fakesig778899&X-Amz-SignedHeaders=host&response-content-disposition=inline%3Bfilename%3D%22file.zip%22%3Bfilename%2A%3DUTF-8%27%27Linux_Unreal_Engine_5.10.0.zip&x-id=GetObject",
+  "https://ucs-blob-store.s3-accelerate.amazonaws.com/blobs/du/p0/dup000?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=FAKE&X-Amz-Date=20261010T000000Z&X-Amz-Expires=3600&X-Amz-Signature=fakesigdup000&X-Amz-SignedHeaders=host&response-content-disposition=inline%3Bfilename%3D%22file.zip%22%3Bfilename%2A%3DUTF-8%27%27Linux_Unreal_Engine_5.7.4.zip&x-id=GetObject",
+  "https://ucs-blob-store.s3-accelerate.amazonaws.com/blobs/no/disposition?X-Amz-Signature=x",
+  "https://www.unrealengine.com/en-US/eula"
+]

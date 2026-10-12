@@ -1,0 +1,16 @@
+{
+	"FileVersion": 3,
+	"EngineAssociation": "5.5",
+	"Category": "Samples",
+	"Modules": [
+		{
+			"Name": "MyGame",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	],
+	"SomeFutureField": {
+		"Nested": [1, 2.5, null, "x"]
+	},
+	"IsEnterpriseProject": false
+}

@@ -1,0 +1,65 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+#
+# flatpak-builder manifest for UnLauncher (offline build, Flathub-style).
+# Requires ../flathub/cargo-sources.json; see README.md.
+id: io.github.krl0sconk.UnLauncher
+# GNOME runtime: it ships WebKitGTK 4.1, which the web window (unlauncher-web)
+# needs.
+# GNOME 51 is based on freedesktop-sdk 26.08, so rust-stable comes from the
+# 26.08 branch.
+runtime: org.gnome.Platform
+runtime-version: '51'
+sdk: org.gnome.Sdk
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.rust-stable
+command: unlauncher
+
+# Explained in docs/permissions.md.
+finish-args:
+  - --share=network
+  - --share=ipc
+  - --socket=wayland
+  - --socket=fallback-x11
+  - --device=dri
+  - --filesystem=home
+  - --talk-name=org.freedesktop.Flatpak
+  - --talk-name=org.freedesktop.secrets
+
+modules:
+  - name: unlauncher
+    buildsystem: simple
+    build-options:
+      append-path: /usr/lib/sdk/rust-stable/bin
+      # The SDK's default CFLAGS add -O2 after aws-lc-sys's own -O0, which its
+      # jitterentropy source refuses to build with. cc-rs adds its own flags.
+      cflags: ''
+      cflags-override: true
+      cxxflags: ''
+      cxxflags-override: true
+      env:
+        # cargo-sources.json writes the vendored crates and a cargo config
+        # with source replacement under /run/build/<module>/cargo.
+        CARGO_HOME: /run/build/unlauncher/cargo
+        CARGO_NET_OFFLINE: 'true'
+    build-commands:
+      - cargo --offline fetch --manifest-path Cargo.toml --locked --verbose
+      - cargo --offline build --release --locked --verbose -p unlauncher -p unlauncher-web
+      - install -Dm755 target/release/unlauncher -t /app/bin/
+      # Found next to unlauncher by HostCommand::bundled; runs inside the sandbox.
+      - install -Dm755 target/release/unlauncher-web -t /app/bin/
+      - install -Dm644 packaging/linux/io.github.krl0sconk.UnLauncher.desktop -t /app/share/applications/
+      - install -Dm644 packaging/linux/io.github.krl0sconk.UnLauncher.metainfo.xml -t /app/share/metainfo/
+      - install -Dm644 packaging/linux/io.github.krl0sconk.UnLauncher.png -t /app/share/icons/hicolor/512x512/apps/
+      - install -Dm644 packaging/linux/io.github.krl0sconk.UnLauncher.mime.xml /app/share/mime/packages/io.github.krl0sconk.UnLauncher.xml
+    sources:
+      # The repository checkout this manifest lives in. For Flathub, replace
+      # with a `type: git` source pinned to a tag and commit.
+      - type: dir
+        path: ../..
+        skip:
+          - .git
+          - target
+          - .flatpak-builder
+          - build-dir
+          - repo
+      - ../flathub/cargo-sources.json
