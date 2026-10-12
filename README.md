@@ -11,7 +11,7 @@
   <a href="LICENSE"><img alt="License: GPL-3.0" src="https://img.shields.io/badge/license-GPL--3.0-f5a524?style=flat-square"></a>
   <img alt="Rust 1.98" src="https://img.shields.io/badge/rust-1.98-f5a524?style=flat-square&logo=rust&logoColor=white">
   <img alt="Platform: Linux" src="https://img.shields.io/badge/platform-Linux-f5a524?style=flat-square&logo=linux&logoColor=white">
-  <img alt="Flatpak: coming soon" src="https://img.shields.io/badge/flatpak-coming%20soon-lightgrey?style=flat-square&logo=flatpak&logoColor=white">
+  <a href="https://krl0sconk.github.io/UnLauncher/io.github.krl0sconk.UnLauncher.flatpakref"><img alt="Flatpak: install" src="https://img.shields.io/badge/flatpak-install-f5a524?style=flat-square&logo=flatpak&logoColor=white"></a>
   <a href="https://github.com/krl0sconk/UnLauncher/releases"><img alt="Latest release" src="https://img.shields.io/github/v/release/krl0sconk/UnLauncher?include_prereleases&style=flat-square&color=f5a524"></a>
 </p>
 
@@ -41,11 +41,29 @@ Epic doesn't ship its launcher for Linux. **UnLauncher** is a native one, writte
 
 ## 📦 Install
 
-### Flathub (coming soon)
+### Flatpak
+
+You need [Flatpak](https://flatpak.org/setup/) and the Flathub remote, which provides the GNOME runtime:
 
 ```bash
-flatpak install flathub io.github.krl0sconk.UnLauncher
+flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 ```
+
+Then install UnLauncher from its own signed repository:
+
+```bash
+flatpak install --user https://krl0sconk.github.io/UnLauncher/io.github.krl0sconk.UnLauncher.flatpakref
+```
+
+Updates arrive with `flatpak update`, or from GNOME Software or KDE Discover.
+
+Alternatively, download the `.flatpak` file from the [latest release](https://github.com/krl0sconk/UnLauncher/releases/latest) and install it:
+
+```bash
+flatpak install --user UnLauncher-0.1.0.flatpak
+```
+
+A bundle installed this way does not update by itself; use the repository above to get updates.
 
 ### Build from source
 

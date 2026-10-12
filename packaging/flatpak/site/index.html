@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UnLauncher: Flatpak repository</title>
+<meta name="description" content="Install and update UnLauncher, an Unreal Engine launcher for Linux, as a Flatpak.">
+<link rel="icon" href="icon.png">
+<style>
+  :root { --bg: #1a1511; --panel: #251d17; --text: #f1e8dc; --muted: #b5a695; --amber: #f5a524; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.6 system-ui, sans-serif; }
+  main { max-width: 46rem; margin: 0 auto; padding: 3rem 1rem; }
+  img { width: 96px; height: 96px; border-radius: 20px; }
+  h1 { margin: 1rem 0 .25rem; font-size: 2.2rem; }
+  h2 { margin-top: 2.5rem; color: var(--amber); font-size: 1.2rem; }
+  p { color: var(--muted); }
+  a { color: var(--amber); }
+  pre { background: var(--panel); border-left: 3px solid var(--amber); padding: 1rem; overflow-x: auto; border-radius: 6px; }
+  code { font-family: ui-monospace, monospace; color: var(--text); font-size: .9rem; }
+  .button { display: inline-block; margin: .25rem .5rem .25rem 0; padding: .5rem 1rem; border-radius: 6px; background: var(--amber); color: #1a1511; font-weight: 600; text-decoration: none; }
+  .button.alt { background: transparent; color: var(--amber); border: 1px solid var(--amber); }
+</style>
+</head>
+<body>
+<main>
+  <img src="icon.png" alt="UnLauncher icon">
+  <h1>UnLauncher</h1>
+  <p>A native Unreal Engine launcher for Linux. Version @VERSION@.</p>
+
+  <h2>Install</h2>
+  <p>You need <a href="https://flatpak.org/setup/">Flatpak</a> and the Flathub remote, which provides the GNOME runtime:</p>
+  <pre><code>flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo</code></pre>
+  <pre><code>flatpak install --user https://krl0sconk.github.io/UnLauncher/io.github.krl0sconk.UnLauncher.flatpakref</code></pre>
+  <p>Updates arrive with <code>flatpak update</code>, or from GNOME Software or KDE Discover.</p>
+
+  <h2>Single file</h2>
+  <p>Each release also carries a <code>.flatpak</code> bundle:</p>
+  <pre><code>flatpak install --user UnLauncher-@VERSION@.flatpak</code></pre>
+
+  <h2>Add the repository by hand</h2>
+  <pre><code>flatpak remote-add --user --if-not-exists unlauncher https://krl0sconk.github.io/UnLauncher/unlauncher.flatpakrepo</code></pre>
+
+  <p>
+    <a class="button" href="io.github.krl0sconk.UnLauncher.flatpakref">Install (.flatpakref)</a>
+    <a class="button alt" href="https://github.com/krl0sconk/UnLauncher/releases/tag/v@VERSION@">Release v@VERSION@</a>
+    <a class="button alt" href="https://github.com/krl0sconk/UnLauncher">Back to the repository</a>
+  </p>
+</main>
+</body>
+</html>

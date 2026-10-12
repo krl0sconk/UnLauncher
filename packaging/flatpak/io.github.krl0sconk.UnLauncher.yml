@@ -1,8 +1,11 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 #
-# flatpak-builder manifest for UnLauncher (offline build, Flathub-style).
-# Requires ../flathub/cargo-sources.json; see README.md.
+# flatpak-builder manifest for UnLauncher: builds the checkout with no network
+# access (crates come from cargo-sources.json). The release workflow
+# (.github/workflows/flatpak.yml) builds this file; see README.md.
 id: io.github.krl0sconk.UnLauncher
+# Must match Branch= in the .flatpakref.
+branch: stable
 # GNOME runtime: it ships WebKitGTK 4.1, which the web window (unlauncher-web)
 # needs.
 # GNOME 51 is based on freedesktop-sdk 26.08, so rust-stable comes from the
@@ -52,8 +55,7 @@ modules:
       - install -Dm644 packaging/linux/io.github.krl0sconk.UnLauncher.png -t /app/share/icons/hicolor/512x512/apps/
       - install -Dm644 packaging/linux/io.github.krl0sconk.UnLauncher.mime.xml /app/share/mime/packages/io.github.krl0sconk.UnLauncher.xml
     sources:
-      # The repository checkout this manifest lives in. For Flathub, replace
-      # with a `type: git` source pinned to a tag and commit.
+      # The repository checkout this manifest lives in.
       - type: dir
         path: ../..
         skip:
@@ -62,4 +64,4 @@ modules:
           - .flatpak-builder
           - build-dir
           - repo
-      - ../flathub/cargo-sources.json
+      - cargo-sources.json

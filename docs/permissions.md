@@ -1,6 +1,6 @@
 # Flatpak permissions
 
-Why the Flatpak of UnLauncher asks for each permission. This is also the justification for the Flathub reviewers.
+What each permission of the UnLauncher Flatpak is for, so you can decide whether to grant it. You can review or change them at any time with `flatpak info --show-permissions io.github.krl0sconk.UnLauncher` and `flatpak override`, or with Flatseal.
 
 UnLauncher (`io.github.krl0sconk.UnLauncher`) installs, builds and launches Unreal
 Engine on Linux. The interface runs inside the sandbox; the Unreal Editor and the
@@ -51,10 +51,3 @@ The scope is kept as small as it can be: no `--filesystem=host`, no `--device=al
 - No `--filesystem=host`. Engines on other disks need a manual override, for example with Flatseal.
 - No `--device=all`.
 - No session-bus access beyond the names above.
-
-## Linter exceptions
-
-`flatpak-builder-lint` reports two errors that need an exception from the Flathub reviewers, justified above:
-
-- `finish-args-flatpak-spawn-access`: launching the Unreal Editor and building the engine on the host.
-- `finish-args-home-filesystem-access`: engines and projects can be anywhere in the home folder, and `~/.config/Epic/UnrealEngine/Install.ini` is shared with the Unreal Editor.

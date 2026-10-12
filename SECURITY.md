@@ -12,6 +12,16 @@ Use GitHub's private vulnerability reporting: go to the [Security tab](https://g
 
 You can expect an acknowledgement within a few days. Fixes are released as soon as they are ready and the report is credited unless you prefer otherwise.
 
+## Flatpak repository key
+
+The Flatpak repository at `https://krl0sconk.github.io/UnLauncher/repo/` and the `.flatpak` bundles are signed with this GPG key (RSA 4096, UnLauncher Flatpak Repo):
+
+```
+189E 0790 DFEF 07A8 FFF9  BD50 070B 86C3 8000 478D
+```
+
+The public key is [`packaging/flatpak/unlauncher-repo.gpg`](packaging/flatpak/unlauncher-repo.gpg). Check it with `gpg --show-keys packaging/flatpak/unlauncher-repo.gpg`. If the key ever changes, the new fingerprint will be published here first.
+
 ## Scope notes
 
 - **Tokens** (Epic and GitHub) are kept in the system keyring through the Secret Service. They are not written to files, logs or error messages.

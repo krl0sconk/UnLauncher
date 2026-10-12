@@ -3,7 +3,7 @@
 # Local development manifest for UnLauncher. Same as
 # io.github.krl0sconk.UnLauncher.yml, but cargo downloads the crates during the
 # build (network allowed with `build-args: --share=network`), so it does not
-# need cargo-sources.json. Not accepted by Flathub; see README.md.
+# need cargo-sources.json. See README.md.
 id: io.github.krl0sconk.UnLauncher
 # GNOME runtime: it ships WebKitGTK 4.1, which the web window (unlauncher-web)
 # needs.
